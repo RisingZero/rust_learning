@@ -4,6 +4,12 @@ struct Rectangle {
     height: u32,
 }
 
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.height * self.width
+    }
+}
+
 fn main() {
     // First, two variables
     let width1 = 10;
@@ -27,6 +33,15 @@ fn main() {
     let rect3 = dbg!(rect3);
     // or
     dbg!(&rect3); // dbg! doesn't take ownership
+
+    // With method
+    let rect4 = Rectangle {
+        width: 10,
+        height: 20,
+    };
+    println!("The area of the rectangle is: {}", rect4.area()); // Automatic referencing (and dereferencing) donoe by Rust
+
+    
 }
 
 fn area1(width: u32, height: u32) -> u32 {
